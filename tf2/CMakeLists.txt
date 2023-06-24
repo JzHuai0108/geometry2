@@ -3,14 +3,15 @@ project(tf2)
 
 find_package(console_bridge REQUIRED)
 find_package(catkin REQUIRED COMPONENTS geometry_msgs rostime tf2_msgs)
-find_package(Boost REQUIRED COMPONENTS system thread)
+find_package(Boost REQUIRED COMPONENTS signals system thread)
 
 catkin_package(
    INCLUDE_DIRS include
-   LIBRARIES tf2
+   LIBRARIES tf2 
    DEPENDS console_bridge
    CATKIN_DEPENDS geometry_msgs tf2_msgs rostime)
 
+include_directories (src/bt)
 include_directories(include ${catkin_INCLUDE_DIRS} ${console_bridge_INCLUDE_DIRS})
 
 # export user definitions
@@ -23,7 +24,7 @@ add_dependencies(tf2 ${catkin_EXPORTED_TARGETS})
 install(TARGETS tf2
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 install(DIRECTORY include/${PROJECT_NAME}/

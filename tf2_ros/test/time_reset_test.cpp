@@ -28,10 +28,9 @@
  */
 
 #include <gtest/gtest.h>
-#include <thread>
-#include <chrono>
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2_ros/transform_listener.h>
+#include <sys/time.h>
 #include <rosgraph_msgs/Clock.h>
 
 using namespace tf2;
@@ -41,7 +40,7 @@ void spin_for_a_second()
   ros::spinOnce();
   for (uint8_t i = 0; i < 10; ++i)
   {
-    std::this_thread::sleep_for(std::chrono::microseconds(100));
+    usleep(100);
     ros::spinOnce();
   }
 }
