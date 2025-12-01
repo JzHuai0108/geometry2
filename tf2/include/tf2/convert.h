@@ -36,6 +36,17 @@
 #include <tf2/transform_datatypes.h>
 #include <tf2/exceptions.h>
 #include <geometry_msgs/TransformStamped.h>
+
+namespace tf2 {
+// Forward declarations, so impl/convert.h sees them
+template<typename A, typename B>
+B toMsg(const A& a);
+
+template<typename A, typename B>
+void fromMsg(const A&, B& b);
+
+}  // namespace tf2
+
 #include <tf2/impl/convert.h>
 
 namespace tf2 {

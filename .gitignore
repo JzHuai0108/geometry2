@@ -1,3 +1,12 @@
 *~
 *.pyc
 \#*
+tf2_geometry_msgs/src/tf2_geometry_msgs.egg-info/
+
+tf2_kdl/src/tf2_kdl.egg-info/
+
+tf2_py/src/tf2_py.egg-info/
+
+tf2_ros/src/tf2_ros.egg-info/
+
+tf2_sensor_msgs/src/tf2_sensor_msgs.egg-info/
